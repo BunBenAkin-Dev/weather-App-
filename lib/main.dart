@@ -4,5 +4,5 @@ import 'package:weather/weatherhome.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MaterialApp(home: Lobby()));
+  runApp(const MaterialApp(home: Weatherhome()));
 }

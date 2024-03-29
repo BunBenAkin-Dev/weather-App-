@@ -1,15 +1,18 @@
 class weathddd {
   location Location;
   current Current;
+  forecast Forecst;
 
-  weathddd({required this.Location, required this.Current});
+  weathddd(
+      {required this.Location, required this.Current, required this.Forecst});
 
   factory weathddd.fromJson(Map<String, dynamic> json) {
     return weathddd(
         Location: location.fromJson(json['location']),
         Current: current.fromJson(
           json['current'],
-        ));
+        ),
+        Forecst: forecast.fromjson(json['forecast']));
   }
 }
 
@@ -98,4 +101,64 @@ class location {
   }
 }
 
+class forecast {
+  List<forecastday> ForecastDay;
+  forecast({required this.ForecastDay});
+
+  factory forecast.fromjson(Map<String, dynamic> json) {
+    var forp = json['forecastday'] as List;
+    List<forecastday> Forecstdayy =
+        forp.map((e) => forecastday.fomjson(e)).toList();
+    return forecast(ForecastDay: Forecstdayy);
+  }
+}
+
+class forecastday {
+  //day Day;
+  List<hour> Hour;
+
+  forecastday(
+      {
+      //required this.Day,
+      required this.Hour});
+
+  factory forecastday.fomjson(Map<String, dynamic> json) {
+    var Hol = json['hour'] as List;
+    List<hour> Hourp = Hol.map((e) => hour.fromjson(e)).toList();
+    return forecastday(
+
+        //Day: day.fromjson(json['day']),
+        Hour: Hourp);
+  }
+}
+
+class hour {
+  int localepoch;
+  double tempc;
+  condition Condition;
+  double feelslike;
+  double wingustmph;
+  double windmph;
+  String winddirection;
+
+  hour(
+      {required this.localepoch,
+      required this.tempc,
+      required this.Condition,
+      required this.feelslike,
+      required this.winddirection,
+      required this.windmph,
+      required this.wingustmph});
+
+  factory hour.fromjson(Map<String, dynamic> json) {
+    return hour(
+        localepoch: json['time_epoch'],
+        tempc: json['temp_c'],
+        Condition: condition.fromJson(json['condition']),
+        feelslike: json['feelslike_c'],
+        winddirection: json['wind_dir'],
+        windmph: json['wind_mph'],
+        wingustmph: json['gust_mph']);
+  }
+}
 //localtime_epoch
