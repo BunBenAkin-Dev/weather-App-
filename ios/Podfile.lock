@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - location_ios (0.0.1):
+    - Flutter
+    - SwiftLocation/Core (= 5.1.0)
+  - SwiftLocation/Core (5.1.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - location_ios (from `.symlinks/plugins/location_ios/ios`)
+
+SPEC REPOS:
+  trunk:
+    - SwiftLocation
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  location_ios:
+    :path: ".symlinks/plugins/location_ios/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  location_ios: e212f211a9ad6ac5a1343a67c87179e4dc0333fe
+  SwiftLocation: 83e0ea75a1969cee3a1197e2b7095603fc23fde5
+
+PODFILE CHECKSUM: 351dbda8241c6ae667acbc7bc0353a0d9978d7f1
+
+COCOAPODS: 1.14.3

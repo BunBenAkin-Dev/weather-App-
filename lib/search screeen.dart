@@ -22,6 +22,7 @@ class _SearchScreenState extends State<SearchScreen> {
     'Moscow',
     'Cairo',
     'Rome',
+    'Lagos',
     'Toronto',
     'Mumbai',
     'Istanbul',
@@ -42,11 +43,13 @@ class _SearchScreenState extends State<SearchScreen> {
     'Abu Dhabi',
     'Vancouver',
     'Prague',
+    'Nigeria'
   ];
 
   void search(String query) {
     setState(() {
-      //paSelected = query;
+      Selected = query;
+
       filteredloca = county
           .where((element) => element.toLowerCase().contains(
                 query.toLowerCase(),
@@ -79,7 +82,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 itemBuilder: (ctx, index) {
                   return ListTile(
                     onTap: () {
-                      Navigator.of(context).pop(Weatherhome());
+                      Navigator.pop(context, filteredloca[index]);
                     },
                     title: Text(
                       filteredloca[index],
